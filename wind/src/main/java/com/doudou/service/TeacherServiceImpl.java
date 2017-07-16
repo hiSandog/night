@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,6 +22,9 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public void insertTeacher(Teacher teacher) {
+        Date date = new Date();
+        teacher.setGmtCreate(date);
+        teacher.setGmtModified(date);
         mongoTemplate.insert(Convert.convertTeacher(teacher));
     }
 
