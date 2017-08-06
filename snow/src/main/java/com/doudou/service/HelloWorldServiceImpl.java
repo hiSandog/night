@@ -1,6 +1,7 @@
 package com.doudou.service;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.doudou.util.CommonContast;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class HelloWorldServiceImpl implements HelloWorldService {
 
-    @Reference(version = "1.0.0")
+    @Reference(version = CommonContast.SERVICE_VERSION)
     public HelloWorldService helloWorldService;
 
     @Override

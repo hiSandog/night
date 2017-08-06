@@ -2,6 +2,7 @@ package com.doudou.service;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.doudou.model.Student;
+import com.doudou.util.CommonContast;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 @Component
 public class StudentServiceImpl implements StudentService {
 
-    @Reference(version = "1.0.0")
+    @Reference(version = CommonContast.SERVICE_VERSION)
     private StudentService studentService;
 
 

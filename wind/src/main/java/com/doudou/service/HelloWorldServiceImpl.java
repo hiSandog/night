@@ -1,11 +1,12 @@
 package com.doudou.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.doudou.util.CommonContast;
 
 /**
  * Created by chenjiaming on 2017/7/16.
  */
-@Service(version = "1.0.0")
+@Service(version = CommonContast.SERVICE_VERSION)
 public class HelloWorldServiceImpl implements HelloWorldService {
 
     @Override

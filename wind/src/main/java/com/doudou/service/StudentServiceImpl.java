@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.doudou.dao.StudentDao;
 import com.doudou.model.Student;
 import com.doudou.model.StudentRepo;
+import com.doudou.util.CommonContast;
 import com.doudou.util.Convert;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,7 +15,7 @@ import java.util.List;
 /**
  * Created by chenjiaming on 2017/7/16.
  */
-@Service(version = "1.0.0")
+@Service(version = CommonContast.SERVICE_VERSION)
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
