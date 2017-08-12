@@ -1,9 +1,11 @@
-package com.doudou.model;
+package com.doudou.model.teacher;
+
+import com.doudou.model.BaseMongoDto;
 
 /**
  * Created by chenjiaming on 2017/7/16.
  */
-public class Teacher extends BaseMongoModel {
+public class TeacherDto extends BaseMongoDto {
 
     private String name;
     private String line1;

@@ -1,7 +1,7 @@
 package com.doudou.service;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.doudou.model.Student;
+import com.doudou.model.student.StudentDto;
 import com.doudou.util.CommonContast;
 import org.springframework.stereotype.Component;
 
@@ -16,14 +16,13 @@ public class StudentServiceImpl implements StudentService {
     @Reference(version = CommonContast.SERVICE_VERSION)
     private StudentService studentService;
 
-
     @Override
-    public void insertStudent(Student student) {
+    public void insertStudent(StudentDto student) {
         studentService.insertStudent(student);
     }
 
     @Override
-    public List<Student> getAllStudents() {
+    public List<StudentDto> getAllStudents() {
         return studentService.getAllStudents();
     }
 

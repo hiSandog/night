@@ -3,10 +3,10 @@ package com.doudou.model;
 /**
  * Created by chenjiaming on 2017/7/9.
  */
-public class StudentVo extends BaseModel {
+public class StudentVo extends BaseDto {
 
     private String name;
-    private int sex;
+    private Integer sex;
     private String remark;
 
     public String getName() {
@@ -21,7 +21,7 @@ public class StudentVo extends BaseModel {
         return sex;
     }
 
-    public void setSex(int sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 

@@ -1,6 +1,6 @@
 package com.doudou.service;
 
-import com.doudou.model.Teacher;
+import com.doudou.model.teacher.TeacherDto;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface TeacherService {
 
-    void insertTeacher(Teacher teacher);
-    List<Teacher> getAllTeachers();
+    void insertTeacher(TeacherDto teacherDto);
+    List<TeacherDto> getAllTeachers();
 
 }

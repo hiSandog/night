@@ -3,7 +3,7 @@ package com.doudou.model;
 /**
  * Created by chenjiaming on 2017/7/9.
  */
-public class TeacherVo extends BaseMongoModel {
+public class TeacherVo extends BaseMongoDto {
 
     private String name;
     private String line1;

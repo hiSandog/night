@@ -1,13 +1,15 @@
 package com.doudou.util;
 
 import com.doudou.model.*;
+import com.doudou.model.student.StudentDto;
+import com.doudou.model.teacher.TeacherDto;
 
 /**
  * Created by chenjiaming on 2017/7/16.
  */
 public class Convert {
 
-    public static StudentVo convertStudent(Student student) {
+    public static StudentVo convertStudent(StudentDto student) {
         StudentVo studentVo = new StudentVo();
         studentVo.setName(student.getName());
         studentVo.setRemark(student.getRemark());
@@ -16,8 +18,8 @@ public class Convert {
         return studentVo;
     }
 
-    public static Student convertStudent(StudentVo studentVo) {
-        Student student = new Student();
+    public static StudentDto convertStudent(StudentVo studentVo) {
+        StudentDto student = new StudentDto();
         student.setName(studentVo.getName());
         student.setRemark(studentVo.getRemark());
         student.setSex(studentVo.getSex());
@@ -25,7 +27,7 @@ public class Convert {
         return student;
     }
 
-    public static TeacherVo convertTeacher(Teacher teacher) {
+    public static TeacherVo convertTeacher(TeacherDto teacher) {
         TeacherVo Vo = new TeacherVo();
         Vo.setLine1(teacher.getLine1());
         Vo.setLine2(teacher.getLine2());
@@ -36,8 +38,8 @@ public class Convert {
         return Vo;
     }
 
-    public static Teacher convertTeacher(TeacherVo Vo) {
-        Teacher teacher = new Teacher();
+    public static TeacherDto convertTeacher(TeacherVo Vo) {
+        TeacherDto teacher = new TeacherDto();
         teacher.setLine1(Vo.getLine1());
         teacher.setLine2(Vo.getLine2());
         teacher.setLine3(Vo.getLine3());
@@ -47,7 +49,7 @@ public class Convert {
         return teacher;
     }
 
-    private static void convertBase(BaseModel Vo, BaseModel ser, boolean VoToSer) {
+    private static void convertBase(BaseDto Vo, BaseDto ser, boolean VoToSer) {
         if (VoToSer) {
             ser.setId(Vo.getId());
             ser.setGmtModified(Vo.getGmtModified());
@@ -59,7 +61,7 @@ public class Convert {
         }
     }
 
-    private static void convertMongoBase(BaseMongoModel Vo, BaseMongoModel ser, boolean VoToSer) {
+    private static void convertMongoBase(BaseMongoDto Vo, BaseMongoDto ser, boolean VoToSer) {
         if (VoToSer) {
             ser.setId(Vo.getId());
             ser.setGmtModified(Vo.getGmtModified());

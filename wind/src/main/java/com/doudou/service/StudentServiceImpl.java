@@ -1,9 +1,10 @@
 package com.doudou.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.doudou.dao.StudentDao;
-import com.doudou.model.Student;
-import com.doudou.model.StudentRepo;
+import com.doudou.model.student.StudentDto;
+import com.doudou.mybatis.bean.StudentDo;
+import com.doudou.mybatis.bean.StudentDoExample;
+import com.doudou.mybatis.persistence.StudentDoMapper;
 import com.doudou.util.CommonContast;
 import com.doudou.util.Convert;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,22 +20,25 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
-    private StudentDao studentDao;
+    private StudentDoMapper studentDoMapper;
 
     @Override
-    public void insertStudent(Student student) {
+    public void insertStudent(StudentDto studentDto) {
         Date date = new Date();
-        student.setGmtCreate(date);
-        student.setGmtModified(date);
-        studentDao.insertStudent(Convert.convertStudent(student));
+        studentDto.setGmtCreate(date);
+        studentDto.setGmtModified(date);
+        studentDoMapper.insert(Convert.convertStudent(studentDto));
     }
 
     @Override
-    public List<Student> getAllStudents() {
-        List<StudentRepo> repoList = studentDao.getAllStudents();
-        List<Student> result = new ArrayList<>(repoList.size());
-        for (StudentRepo repo : repoList) {
-            result.add(Convert.convertStudent(repo));
+    public List<StudentDto> getAllStudents() {
+        StudentDoExample doExample = new StudentDoExample();
+        StudentDoExample.Criteria criteria = doExample.createCriteria();
+        criteria.andIdIsNotNull();
+        List<StudentDo> repoList = studentDoMapper.selectByExample(doExample);
+        List<StudentDto> result = new ArrayList<>(repoList.size());
+        for (StudentDo studentDo : repoList) {
+            result.add(Convert.convertStudent(studentDo));
         }
         return result;
     }

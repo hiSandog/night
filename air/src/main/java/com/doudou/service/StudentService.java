@@ -1,6 +1,6 @@
 package com.doudou.service;
 
-import com.doudou.model.Student;
+import com.doudou.model.student.StudentDto;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface StudentService {
 
-    void insertStudent(Student student);
-    List<Student> getAllStudents();
+    void insertStudent(StudentDto studentDto);
+    List<StudentDto> getAllStudents();
 
 }

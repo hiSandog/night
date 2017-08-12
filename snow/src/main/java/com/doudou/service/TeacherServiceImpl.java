@@ -1,7 +1,7 @@
 package com.doudou.service;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.doudou.model.Teacher;
+import com.doudou.model.teacher.TeacherDto;
 import com.doudou.util.CommonContast;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +17,12 @@ public class TeacherServiceImpl implements TeacherService {
     public TeacherService teacherService;
 
     @Override
-    public void insertTeacher(Teacher teacher) {
+    public void insertTeacher(TeacherDto teacher) {
         teacherService.insertTeacher(teacher);
     }
 
     @Override
-    public List<Teacher> getAllTeachers() {
+    public List<TeacherDto> getAllTeachers() {
         return teacherService.getAllTeachers();
     }
 

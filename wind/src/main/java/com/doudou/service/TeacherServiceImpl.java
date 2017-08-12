@@ -1,8 +1,8 @@
 package com.doudou.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.doudou.model.Teacher;
-import com.doudou.model.TeacherRepo;
+import com.doudou.model.teacher.TeacherDto;
+import com.doudou.mongo.TeacherDo;
 import com.doudou.util.CommonContast;
 import com.doudou.util.Convert;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,19 +22,19 @@ public class TeacherServiceImpl implements TeacherService {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public void insertTeacher(Teacher teacher) {
+    public void insertTeacher(TeacherDto teacherDto) {
         Date date = new Date();
-        teacher.setGmtCreate(date);
-        teacher.setGmtModified(date);
-        mongoTemplate.insert(Convert.convertTeacher(teacher));
+        teacherDto.setGmtCreate(date);
+        teacherDto.setGmtModified(date);
+        mongoTemplate.insert(Convert.convertTeacher(teacherDto));
     }
 
     @Override
-    public List<Teacher> getAllTeachers() {
-        List<TeacherRepo> items = mongoTemplate.find(null, TeacherRepo.class);
-        List<Teacher> result = new ArrayList<>(items.size());
-        for (TeacherRepo repo : items) {
-            result.add(Convert.convertTeacher(repo));
+    public List<TeacherDto> getAllTeachers() {
+        List<TeacherDo> items = mongoTemplate.find(null, TeacherDo.class);
+        List<TeacherDto> result = new ArrayList<>(items.size());
+        for (TeacherDo teacherDo : items) {
+            result.add(Convert.convertTeacher(teacherDo));
         }
         return result;
     }

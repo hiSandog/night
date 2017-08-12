@@ -1,12 +1,16 @@
-package com.doudou.model;
+package com.doudou.model.student;
+
+import com.doudou.model.BaseDto;
 
 /**
  * Created by chenjiaming on 2017/7/16.
  */
-public class Student extends BaseModel {
+public class StudentDto extends BaseDto {
 
     private String name;
-    private int sex;
+
+    // 0 Î´È·ÈÏ 1 ÄÐ 2 Å®
+    private Integer sex;
     private String remark;
 
     public String getName() {
@@ -17,11 +21,11 @@ public class Student extends BaseModel {
         this.name = name;
     }
 
-    public int getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(int sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 

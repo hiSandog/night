@@ -1,26 +1,14 @@
-package com.doudou.model;
+package com.doudou.mongo;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by chenjiaming on 2017/7/16.
+ * Created by chenjiaming on 2017/8/12.
  */
-public class BaseMongoModel implements Serializable {
+public class BaseMongoDo {
 
-    private static final long serialVersionUID = 1L;
-
-    private String id;
     private Date gmtCreate;
     private Date gmtModified;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public Date getGmtCreate() {
         return gmtCreate;
@@ -37,4 +25,5 @@ public class BaseMongoModel implements Serializable {
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
     }
+
 }

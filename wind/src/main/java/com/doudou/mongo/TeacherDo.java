@@ -1,13 +1,13 @@
-package com.doudou.model;
+package com.doudou.mongo;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * Created by chenjiaming on 2017/7/16.
+ * Created by chenjiaming on 2017/8/12.
  */
 @Document(collection = "ct_teacher")
-public class TeacherRepo extends BaseMongoRepo {
+public class TeacherDo extends BaseMongoDo {
 
     @Id
     private String id;

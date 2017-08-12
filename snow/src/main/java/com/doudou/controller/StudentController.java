@@ -2,8 +2,8 @@ package com.doudou.controller;
 
 import com.doudou.core.SnowException;
 import com.doudou.model.CommonResponse;
-import com.doudou.model.Student;
 import com.doudou.model.StudentVo;
+import com.doudou.model.student.StudentDto;
 import com.doudou.service.StudentServiceImpl;
 import com.doudou.util.Convert;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +27,9 @@ public class StudentController {
 
     @RequestMapping("/get_all")
     public ResponseEntity<CommonResponse> getAll() throws SnowException {
-        List<Student> list = studentService.getAllStudents();
+        List<StudentDto> list = studentService.getAllStudents();
         List<StudentVo> result = new ArrayList<>(list.size());
-        for (Student student : list) {
+        for (StudentDto student : list) {
             result.add(Convert.convertStudent(student));
         }
         return new ResponseEntity<>(new CommonResponse(list), HttpStatus.OK);
