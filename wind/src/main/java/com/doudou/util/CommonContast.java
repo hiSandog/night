@@ -5,6 +5,7 @@ package com.doudou.util;
  */
 public class CommonContast {
 
+    // dubbo 的 service 版本
     public static final String SERVICE_VERSION = "dev.1.0.0";
 
 }
