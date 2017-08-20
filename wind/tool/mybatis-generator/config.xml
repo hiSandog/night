@@ -36,9 +36,11 @@
 		</javaClientGenerator>
 
 		<table schema="zlfh" tableName="T_STUDENT" domainObjectName="StudentDo">
-			<property name="useActualColumnNames" value="false" />
 			<generatedKey column="id" sqlStatement="MySql" identity="true" />
-			<columnOverride column="id" property="id" />
+		</table>
+
+		<table schema="zlfh" tableName="T_USER" domainObjectName="UserDo">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
 		</table>
 
 	</context>

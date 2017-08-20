@@ -2,7 +2,9 @@ package com.doudou.util;
 
 import com.doudou.model.*;
 import com.doudou.model.student.StudentDto;
+import com.doudou.model.student.UserDto;
 import com.doudou.model.teacher.TeacherDto;
+import org.springframework.beans.BeanUtils;
 
 /**
  * Created by chenjiaming on 2017/7/16.
@@ -72,5 +74,25 @@ public class Convert {
             Vo.setGmtCreate(ser.getGmtCreate());
         }
     }
-    
+
+    public static UserDto convertUser(UserVo userVo) {
+        UserDto userDto = new UserDto();
+        try {
+            BeanUtils.copyProperties(userVo, userDto);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userDto;
+    }
+
+    public static UserVo convertUser(UserDto userDto) {
+        UserVo userVo = new UserVo();
+        try {
+            BeanUtils.copyProperties(userDto, userVo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userVo;
+    }
+
 }

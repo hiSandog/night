@@ -2,10 +2,13 @@ package com.doudou.util;
 
 import com.doudou.model.*;
 import com.doudou.model.student.StudentDto;
+import com.doudou.model.student.UserDto;
 import com.doudou.model.teacher.TeacherDto;
 import com.doudou.mongo.BaseMongoDo;
 import com.doudou.mongo.TeacherDo;
 import com.doudou.mybatis.bean.StudentDo;
+import com.doudou.mybatis.bean.UserDo;
+import org.springframework.beans.BeanUtils;
 
 /**
  * Created by chenjiaming on 2017/7/16.
@@ -66,6 +69,26 @@ public class Convert {
             repo.setGmtModified(ser.getGmtModified());
             repo.setGmtCreate(ser.getGmtCreate());
         }
+    }
+
+    public static UserDo convertUser(UserDto userDto) {
+        UserDo userDo = new UserDo();
+        try {
+            BeanUtils.copyProperties(userDto, userDo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userDo;
+    }
+
+    public static UserDto convertUser(UserDo userDo) {
+        UserDto userDto = new UserDto();
+        try {
+            BeanUtils.copyProperties(userDo, userDto);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userDto;
     }
 
 }

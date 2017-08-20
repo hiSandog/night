@@ -39,7 +39,7 @@ public class StudentController {
         for (StudentDto student : list) {
             result.add(Convert.convertStudent(student));
         }
-        return new ResponseEntity<>(new CommonResponse(list), HttpStatus.OK);
+        return new ResponseEntity<>(new CommonResponse(result), HttpStatus.OK);
     }
 
     @ApiOperation("插入一条学生数据")
