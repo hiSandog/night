@@ -34,6 +34,7 @@ public class RedisConf {
         JedisConnectionFactory connectionFactory = new JedisConnectionFactory();
         connectionFactory.setDatabase(index);
         connectionFactory.setHostName(hostName);
+        connectionFactory.afterPropertiesSet();
         Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
         ObjectMapper om = new ObjectMapper();
         om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
