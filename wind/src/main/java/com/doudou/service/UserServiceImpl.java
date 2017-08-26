@@ -7,6 +7,8 @@ import com.doudou.mybatis.bean.UserDoExample;
 import com.doudou.mybatis.persistence.UserDoMapper;
 import com.doudou.util.CommonContast;
 import com.doudou.util.Convert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -19,6 +21,8 @@ import java.util.List;
 @Service(version = CommonContast.SERVICE_VERSION)
 public class UserServiceImpl implements UserService {
 
+    private final static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Autowired
     private UserDoMapper userMapper;
 
@@ -27,7 +31,11 @@ public class UserServiceImpl implements UserService {
         Date date = new Date();
         userDto.setGmtModified(date);
         userDto.setGmtCreate(date);
-        userMapper.insert(Convert.convertUser(userDto));
+        try {
+            userMapper.insert(Convert.convertUser(userDto));
+        } catch (Exception e) {
+            logger.error("手机号重复,插入失败");
+        }
     }
 
     @Override
