@@ -5,6 +5,8 @@ import com.doudou.model.teacher.TeacherDto;
 import com.doudou.mongo.TeacherDo;
 import com.doudou.util.CommonContast;
 import com.doudou.util.Convert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
@@ -17,6 +19,8 @@ import java.util.List;
  */
 @Service(version = CommonContast.SERVICE_VERSION)
 public class TeacherServiceImpl implements TeacherService {
+
+    private final static Logger logger = LoggerFactory.getLogger(TeacherServiceImpl.class);
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -34,6 +38,7 @@ public class TeacherServiceImpl implements TeacherService {
         List<TeacherDo> items = mongoTemplate.find(null, TeacherDo.class);
         List<TeacherDto> result = new ArrayList<>(items.size());
         for (TeacherDo teacherDo : items) {
+            logger.info(teacherDo.getName());
             result.add(Convert.convertTeacher(teacherDo));
         }
         return result;

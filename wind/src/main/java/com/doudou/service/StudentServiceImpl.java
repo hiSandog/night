@@ -7,6 +7,8 @@ import com.doudou.mybatis.bean.StudentDoExample;
 import com.doudou.mybatis.persistence.StudentDoMapper;
 import com.doudou.util.CommonContast;
 import com.doudou.util.Convert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -18,6 +20,8 @@ import java.util.List;
  */
 @Service(version = CommonContast.SERVICE_VERSION)
 public class StudentServiceImpl implements StudentService {
+
+    private final static Logger logger = LoggerFactory.getLogger(StudentServiceImpl.class);
 
     @Autowired
     private StudentDoMapper studentDoMapper;
@@ -38,6 +42,7 @@ public class StudentServiceImpl implements StudentService {
         List<StudentDo> repoList = studentDoMapper.selectByExample(doExample);
         List<StudentDto> result = new ArrayList<>(repoList.size());
         for (StudentDo studentDo : repoList) {
+            logger.info(studentDo.getName());
             result.add(Convert.convertStudent(studentDo));
         }
         return result;
